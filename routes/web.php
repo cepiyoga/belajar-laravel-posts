@@ -48,3 +48,6 @@ Route::get('/categories',function(){
 
     ]);
 });
+
+
+Route::get('/test',[PostController::class,'test']);

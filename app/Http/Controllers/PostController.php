@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\PostData;
 use App\Models\TestCepi;
 
 class PostController extends Controller
@@ -14,6 +15,11 @@ class PostController extends Controller
             'posts' => Post::all()
         ]);
     }
+
+
+    // Route::get('/user/{id}', function (Request $request, string $id) {
+    //     return 'User '.$id;
+    // });
     
     //Route::get('/posts/{post:slug}', [PostController::class,'show']);
     public function show(Post $post){
@@ -30,6 +36,14 @@ class PostController extends Controller
             'title'=> 'Test',
             'datas'=> $post_data
     
+        ]);
+    }
+
+    public function lihat(){
+        //$ambilData = DB::select("SELECT * FROM posts");
+        return view('lihat',[
+            'title'=>'Coba Data',
+            'datas'=> DB::select("SELECT * FROM posts")
         ]);
     }
 }

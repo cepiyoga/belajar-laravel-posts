@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('coba_cepis', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('category_id');
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->text('excerpt');
-            $table->text('body');
-            $table->timestamp('published_at')->nullable();
+            $table->string("nama",100)->nullable(false);
             $table->timestamps();
         });
     }
@@ -28,9 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('coba_cepis');
     }
 };
-
-
-

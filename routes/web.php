@@ -51,3 +51,4 @@ Route::get('/categories',function(){
 
 
 Route::get('/test/{slug}',[PostController::class,'test']);
+Route::get('/lihat',[PostController::class,'lihat']);

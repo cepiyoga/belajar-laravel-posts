@@ -1,12 +1,29 @@
-{{-- @dd($post); --}}
+{{-- @dd($post->category); --}}
 
 @extends('layouts.main')
 
 @section('container')
-<h1>{{ $post->title }}</h1>
-<p>By Sandika Galih, in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a> </p>
 
-{!! $post->body !!}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-<a href="/posts">Back</a>
+            <h1 class="mb-3">{{ $post->title }}</h1>            
+            <p>By <a class="text-decoration-none" href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>, in <a class="text-decoration-none" href="/posts?category={{ $post->category->slug }}">{{ $post->category->name }}</a> </p>
+            <article class="my-3 fs-5">
+
+                <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}" class="img-fluid">
+
+                {!! $post->body !!}
+            </article>
+
+            <a class="text-decoration-none" href="/posts">Back</a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
 @endsection

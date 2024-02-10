@@ -39,11 +39,12 @@ class DatabaseSeeder extends Seeder
             'nama'=>'Cepi Yoga'
         ]);
 
-        // User::create([
-        //     'name'=> 'Cepi Yoga',
-        //     'email' => 'cepiyoga@gmail.com',
-        //     'password'=>'abc123',
-        // ]);
+        User::create([
+            'name'=> 'Cepi Yoga',
+            'username'=>'cepiyoga',
+            'email' => 'cepiyoga@gmail.com',
+            'password'=>'password',
+        ]);
         
         // User::create([
         //     'name'=> 'Naufal Yoga',

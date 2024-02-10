@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Cviebrock\EloquentSluggable\Sluggable;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +13,7 @@ class Post extends Model
 {
     use HasFactory;
     use HasUuids;
+    use Sluggable;
 
     protected $guarded = ['id'];
 
@@ -69,6 +70,20 @@ class Post extends Model
     // {
     //     return $this->belongsTo("Category",'category_id');
     // }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
     
 }
